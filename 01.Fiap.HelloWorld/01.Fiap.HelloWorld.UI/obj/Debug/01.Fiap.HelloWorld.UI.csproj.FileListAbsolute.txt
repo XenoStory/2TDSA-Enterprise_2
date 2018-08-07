@@ -1,0 +1,7 @@
+D:\Gustavo\2TDSA-Enterprise\01.Fiap.HelloWorld\01.Fiap.HelloWorld.UI\bin\Debug\01.Fiap.HelloWorld.UI.exe.config
+D:\Gustavo\2TDSA-Enterprise\01.Fiap.HelloWorld\01.Fiap.HelloWorld.UI\bin\Debug\01.Fiap.HelloWorld.UI.exe
+D:\Gustavo\2TDSA-Enterprise\01.Fiap.HelloWorld\01.Fiap.HelloWorld.UI\bin\Debug\01.Fiap.HelloWorld.UI.pdb
+D:\Gustavo\2TDSA-Enterprise\01.Fiap.HelloWorld\01.Fiap.HelloWorld.UI\obj\Debug\01.Fiap.HelloWorld.UI.csprojAssemblyReference.cache
+D:\Gustavo\2TDSA-Enterprise\01.Fiap.HelloWorld\01.Fiap.HelloWorld.UI\obj\Debug\01.Fiap.HelloWorld.UI.csproj.CoreCompileInputs.cache
+D:\Gustavo\2TDSA-Enterprise\01.Fiap.HelloWorld\01.Fiap.HelloWorld.UI\obj\Debug\01.Fiap.HelloWorld.UI.exe
+D:\Gustavo\2TDSA-Enterprise\01.Fiap.HelloWorld\01.Fiap.HelloWorld.UI\obj\Debug\01.Fiap.HelloWorld.UI.pdb

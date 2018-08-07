@@ -1,0 +1,6 @@
+D:\Gustavo\2TDSA-Enterprise\01.Fiap.HelloWorld\01.Fiap.Exercicio\bin\Debug\01.Fiap.Exercicio.exe.config
+D:\Gustavo\2TDSA-Enterprise\01.Fiap.HelloWorld\01.Fiap.Exercicio\bin\Debug\01.Fiap.Exercicio.exe
+D:\Gustavo\2TDSA-Enterprise\01.Fiap.HelloWorld\01.Fiap.Exercicio\bin\Debug\01.Fiap.Exercicio.pdb
+D:\Gustavo\2TDSA-Enterprise\01.Fiap.HelloWorld\01.Fiap.Exercicio\obj\Debug\01.Fiap.Exercicio.csproj.CoreCompileInputs.cache
+D:\Gustavo\2TDSA-Enterprise\01.Fiap.HelloWorld\01.Fiap.Exercicio\obj\Debug\01.Fiap.Exercicio.exe
+D:\Gustavo\2TDSA-Enterprise\01.Fiap.HelloWorld\01.Fiap.Exercicio\obj\Debug\01.Fiap.Exercicio.pdb
