@@ -11,14 +11,14 @@ namespace Fiap.Banco.Model
         public decimal Taxa { get; set; }
         private readonly decimal _rendimento;
 
-        public ContaPoupanca(decimal rendimento)
-        {
-            _rendimento = rendimento;
-        }
-
         public decimal Rendimento
         {
             get { return _rendimento; }
+        }
+
+        public ContaPoupanca(decimal rendimento)
+        {
+            _rendimento = rendimento;
         }
 
         public override void Retirar(decimal valor)
@@ -32,9 +32,9 @@ namespace Fiap.Banco.Model
             Saldo -= Taxa + valor;
         }
 
-        public void CalculaRetornoInvestimento()
+        public decimal CalculaRetornoInvestimento()
         {
-           Saldo *= _rendimento;
+            return Saldo * Rendimento;
         }
     }
 }

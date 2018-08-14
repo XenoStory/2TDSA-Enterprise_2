@@ -8,6 +8,6 @@ namespace Fiap.Banco.Model
 {
     interface IContaInvestimento
     {
-        void CalculaRetornoInvestimento();
+       decimal CalculaRetornoInvestimento();
     }
 }

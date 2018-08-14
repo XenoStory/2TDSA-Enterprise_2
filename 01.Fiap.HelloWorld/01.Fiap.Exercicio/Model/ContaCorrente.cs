@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace Fiap.Banco.Model
 {
-    class ContaCorrente : Conta
+    // sealed: classe não pode ser herdada (mesmo que final no Java)
+    sealed class ContaCorrente : Conta
     {
         public TipoConta TipoConta { get; set; }
 
         public override void Retirar(decimal valor)
         {
-            if (TipoConta == TipoConta.Comum && Saldo - valor < 0)
+            if (TipoConta == TipoConta.Comum && valor > Saldo)
             {
                 throw new Exception("Saldo não permitido devido ao saldo.");
             }
