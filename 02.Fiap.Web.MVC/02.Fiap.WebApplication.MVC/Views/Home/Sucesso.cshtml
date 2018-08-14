@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Sucesso";
+}
+
+@if (TempData["message"] != null)
+{   <h2>Seja bem-vindo, @ViewBag.username</h2>
+    <div style="margin-top: 25px" class="alert alert-success">
+        @TempData["message"]
+    </div>
+}
+

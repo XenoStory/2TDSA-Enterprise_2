@@ -1,0 +1,53 @@
+﻿
+@model _02.Fiap.WebApplication.MVC.Models.Show
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+@ViewBag.banda
+
+@if (Model != null)
+{
+    <div class="container">
+        <div style="margin-top: 25px;" class="alert alert-success">
+            @TempData["msg"]
+        </div>
+
+        <ul>
+            <li>@Model.Banda</li>
+            <li>@Model.Data.ToShortDateString()</li>
+            <li>@(Model.Estudante ? "Estudante" : "Inteira")</li>
+            <li>@Model.Valor</li>
+        </ul>
+    </div>
+}
+<div class="container">
+    <h2>Cadastrar</h2>
+
+    <form action="/Show/Cadastrar" method="post">
+        <div class="form-group">
+            <label for="id-data">Data: </label>
+            <input class="form-control" type="date" name="horario" id="id-data" />
+        </div>
+        <div class="form-group">
+            <label for="id-valor">Valor: </label>
+            <input class="form-control" type="number" name="valor" id="id-valor" />
+        </div>
+        <div class="form-group">
+            <label for="id-banda">Banda: </label>
+            <input class="form-control" type="text" name="banda" id="id-banda" />
+        </div>
+        <div class="form-group">
+            <input type="checkbox" name="estudante" id="id-estudante" value="true" />
+            <label for="id-estudante">Estudante</label>
+        </div>
+        <div class="form-group">
+            <input class="btn btn-dark" type="submit" value="Enviar" />
+        </div>
+        <div class="form-group">
+            <strong><small class="form-text text-muted">* Todos os campos devem ser preenchidos.</small></strong>
+        </div>
+    </form>
+</div>
+
