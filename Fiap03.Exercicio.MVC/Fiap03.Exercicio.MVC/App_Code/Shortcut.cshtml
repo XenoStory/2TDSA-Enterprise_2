@@ -1,0 +1,14 @@
+﻿@helper GenerateSubmit(string name, string className, string value)
+{
+    <input type="submit" name="@name" class="@className" value="@value" />
+}
+
+@helper GenerateSuccesMsg(string msg)
+{
+    if (msg != null)
+    {
+        <div class="alert alert-success">
+            @msg
+        </div>
+    }
+}

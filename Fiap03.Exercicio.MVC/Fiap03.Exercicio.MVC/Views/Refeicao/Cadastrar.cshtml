@@ -1,0 +1,27 @@
+﻿@model Fiap03.Exercicio.MVC.Models.Refeicao
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+
+@Shortcut.GenerateSuccesMsg((string) TempData["msg"])
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(r => r.Nome)
+        @Html.TextBoxFor(r => r.Nome, new { @class = "form-control"})
+    </div>
+    <div class="form-group">
+        @Html.CheckBoxFor(r => r.Vegetariano)
+        @Html.LabelFor(r => r.Vegetariano)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(r => r.Bebida)
+        @Html.DropDownListFor(r => r.Bebida, ViewBag.listaBebidas as SelectList, new { @class = "form-control"})
+    </div>
+
+    @Shortcut.GenerateSubmit("cadastrar", "btn btn-primary", "Cadastrar")
+}
