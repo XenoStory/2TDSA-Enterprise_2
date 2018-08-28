@@ -1,0 +1,64 @@
+﻿@model List<Fiap04.Web.Mvc.Models.Pessoa>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["msg"]
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>Nome</th>
+        <th>Dependentes</th>
+        <th>Data de Nascimento</th>
+        <th>Alterar</th>
+        <th>Deletar</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Nome</td>
+            <td>@item.Dependentes</td>
+            <td>@item.DataNascimento.ToShortDateString()</td>
+            <td>
+                @Html.ActionLink("Editar", "Alterar", new { id = item.PessoaId }, new { @class = "btn btn-success btn-sm" })
+            </td>
+            <td>
+                <button onclick="codigoPessoa.value = @item.PessoaId;" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">
+                    Excluir
+                </button>
+            </td>
+        </tr>
+    }
+</table>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Confirmar escolha</h4>
+            </div>
+            <div class="modal-body">
+                Você tem certeza que deseja remover a pessoa com nome <span id="nomePessoa"></span>
+            </div>
+            <div class="modal-footer">
+                @using (Html.BeginForm("Excluir", "Pessoa"))
+                {
+                    <input type="hidden" name="id" id="codigoPessoa" />
+                    <button type = "button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type ="submit" class="btn btn-primary">Confirmar</button>
+                }
+                </div>
+        </div>
+    </div>
+</div>
+
+
+
