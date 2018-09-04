@@ -64,5 +64,13 @@ namespace Fiap04.Web.Mvc.Controllers
             TempData["msg"] = "Pessoa atualizada com sucesso.";
             return RedirectToAction("Listar");
         }
+
+        [HttpGet]
+        public ActionResult Pesquisar(String nomeBusca)
+        {
+           List<Pessoa> lista = _context.Pessoas.Where(p => p.Nome.Contains(nomeBusca)).ToList();
+
+            return View("Listar", lista);
+        }
     }
 }

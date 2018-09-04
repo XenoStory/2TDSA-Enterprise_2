@@ -5,13 +5,14 @@
 
 <h2>Listar</h2>
 
-@if (TempData["msg"] != null)
+@UtilHelper.msg(TempData["msg"])
+
+@using (Html.BeginForm("Pesquisar", "Pessoa", FormMethod.Get, new { @class = "form-inline" }))
 {
-    <div class="alert alert-success">
-        @TempData["msg"]
-    </div>
+    @Html.TextBox("nomeBusca", null, new { placeholder = "Digite um nome", @class = "form-control search-person" })
+    @UtilHelper.Button("Consultar") 
 }
-<table class="table">
+<table style="margin-top: 25px;" class="table">
     <tr>
         <th>Nome</th>
         <th>Dependentes</th>
@@ -34,7 +35,7 @@
                 </button>
             </td>
         </tr>
-    }
+        }
 </table>
 
 <!-- Modal -->
@@ -52,10 +53,10 @@
                 @using (Html.BeginForm("Excluir", "Pessoa"))
                 {
                     <input type="hidden" name="id" id="codigoPessoa" />
-                    <button type = "button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type ="submit" class="btn btn-primary">Confirmar</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Confirmar</button>
                 }
-                </div>
+            </div>
         </div>
     </div>
 </div>
