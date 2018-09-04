@@ -1,0 +1,30 @@
+﻿@model Fiap05.Web.MVC.Models.CartaoVirtual
+
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+
+@UtilsHelper.alert(TempData["msg"])
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(cv => cv.Numero)
+        @Html.TextBoxFor(cv => cv.Numero, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.CheckBoxFor(cv => cv.Utilizado)
+        @Html.LabelFor(cv => cv.Utilizado)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(cv => cv.CartaoReal)
+        @Html.DropDownListFor(cv => cv.CartaoRealId,
+            ViewBag.listaCr as SelectList,
+                new { @class = "form-control"})
+    </div>
+
+    @UtilsHelper.formSubmit("Cadastrar")
+}
+

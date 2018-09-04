@@ -1,0 +1,24 @@
+﻿@model List<Fiap05.Web.MVC.Models.Compra>
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Data da compra</th>
+        <th>Cartão Virtual</th>
+    </tr>
+    @foreach(var i in Model)
+    {
+        <tr>
+            <td>@i.CompraId</td>
+            <td>@i.Data.ToShortDateString()</td>
+            <td>@i.CartaoVirtual.Numero</td>
+        </tr>
+    }
+</table>
+

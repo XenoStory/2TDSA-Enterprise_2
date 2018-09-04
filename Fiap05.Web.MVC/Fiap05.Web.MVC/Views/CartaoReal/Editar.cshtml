@@ -1,0 +1,25 @@
+﻿@model Fiap05.Web.MVC.Models.CartaoReal
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar</h2>
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(cr => cr.CartaoRealId)
+        <div class="form-group">
+            @Html.LabelFor(cr => cr.Numero)
+            @Html.TextBoxFor(cr => cr.Numero, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(cr => cr.Cvv)
+            @Html.TextBoxFor(cr => cr.Cvv, new { @class = "form-control" })
+        </div>
+
+        @UtilsHelper.formSubmit("Alterar")
+    }
+</div>
+

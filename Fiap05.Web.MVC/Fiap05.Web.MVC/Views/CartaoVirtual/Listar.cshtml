@@ -1,0 +1,25 @@
+﻿@model List<Fiap05.Web.MVC.Models.CartaoVirtual>
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Número</th>
+        <th>Utilizado</th>
+        <th>Cartão real</th>
+    </tr>
+    @foreach(var i in Model)
+    {
+        <tr>
+            <td>@i.CartaoVirtualId</td>
+            <td>@i.Numero</td>
+            <td>@(i.Utilizado ? "Sim" : "Não")</td>
+            <td>@i.CartaoReal.Numero</td>
+        </tr>
+    }
+</table>
