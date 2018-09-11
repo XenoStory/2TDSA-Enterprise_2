@@ -6,6 +6,12 @@
 
 <h2>Listar</h2>
 
+@using (Html.BeginForm("Pesquisar", "CartaoVirtual", FormMethod.Get, new { @class = "form-inline" }))
+{
+    @Html.DropDownList("numero", ViewBag.listaCartoes as SelectList, new { @class = "form-control" })
+    @UtilsHelper.formSubmit("Pesquisar")
+}
+<br /><br />
 <table class="table">
     <tr>
         <th>ID</th>
@@ -13,7 +19,7 @@
         <th>Utilizado</th>
         <th>Cartão real</th>
     </tr>
-    @foreach(var i in Model)
+    @foreach (var i in Model)
     {
         <tr>
             <td>@i.CartaoVirtualId</td>

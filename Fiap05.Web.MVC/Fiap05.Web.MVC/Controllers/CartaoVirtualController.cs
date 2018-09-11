@@ -38,7 +38,27 @@ namespace Fiap05.Web.MVC.Controllers
             // Include: preenche o objeto da outra tabela com seus valores
             var lista = _c.CartoesVirtuais.Include("CartaoReal").ToList();
 
+            CarregarDropDown();
+
             return View(lista);
+        }
+
+        [HttpGet]
+        public ActionResult Pesquisar(int numero)
+        {
+            var lista = _c.CartoesVirtuais.Where(car => car.CartaoRealId == numero).ToList();
+
+            CarregarDropDown();
+
+            return View("Listar", lista);
+        }
+
+
+        private void CarregarDropDown()
+        {
+            // Valores para o dropdown do frontend
+            var dropList = _c.CartoesReais.ToList();
+            ViewBag.listaCartoes = new SelectList(dropList, "CartaoRealId", "Numero");
         }
     }
 }

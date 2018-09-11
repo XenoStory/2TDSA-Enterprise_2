@@ -10,7 +10,7 @@
 
 @using (Html.BeginForm("Pesquisar", "CartaoReal", FormMethod.Get, new { @class = "form-inline" }))
 {
-    @Html.TextBox("number", null, new { placeholder = "Digite o número do cartão", @class ="form-control"})
+    @Html.TextBox("number", null, new { placeholder = "Digite o número do cartão", @class = "form-control" })
     @UtilsHelper.formSubmit("Pesquisar")
 }
 
@@ -19,8 +19,8 @@
         <th>ID</th>
         <th>Número</th>
         <th>CVV</th>
-        <th>Alterar</th>
-        <th>Excluir</th>
+        <th>Aprovar</th>
+        <th>Bloquear</th>
     </tr>
     <tr>
         @foreach (var i in Model)
@@ -28,15 +28,32 @@
         <tr>
             <td>@i.CartaoRealId</td>
             <td>@i.Numero</td>
-            <td>@i.Cvv</td>
-            <td>@Html.ActionLink("Alterar", "Editar", new { id = i.CartaoRealId }, new { @class = "btn btn-success btn-sm" })</td>
+            <td>@i.Status</td>
             <td>
-                <button onclick="crId.value = @i.CartaoRealId;" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
-                    Excluir
-                </button>
+                @if (i.Status == Fiap05.Web.MVC.Models.StatusCartao.Bloqueado)
+                {
+                    <button onclick="craId.value = @i.CartaoRealId;" type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#aproveModal">
+                        Aprovar
+                    </button>
+                }
+                else
+                {
+                    <strong>-</strong>
+                }
+            </td>
+            <td>
+                @if (i.Status == Fiap05.Web.MVC.Models.StatusCartao.Aprovado)
+                {
+                    <button onclick="crId.value = @i.CartaoRealId;" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal">
+                        Bloquear
+                    </button>
+                } else
+                {
+                    <strong>-</strong>
+                }
             </td>
         </tr>
-            }
+        }
     </table>
 
     <!-- Modal -->
@@ -45,15 +62,39 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Confirmar exclusão</h4>
+                    <h4 class="modal-title" id="myModalLabel">Confirmar bloqueio</h4>
                 </div>
                 <div class="modal-body">
-                   Você tem certeza que deseja apagar o registro?
+                    Você tem certeza que deseja bloquear o cartão?
                 </div>
                 <div class="modal-footer">
-                    @using (Html.BeginForm("Excluir", "CartaoReal"))
+                    @using (Html.BeginForm("Bloquear", "CartaoReal"))
                     {
+                        <input type="hidden" name="status" id="craStatus" />
                         <input type="hidden" name="id" id="crId" />
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-primary">Confirmar</button>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="aproveModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Confirmar aprovação</h4>
+                </div>
+                <div class="modal-body">
+                    Você tem certeza que deseja confirmar o cartão?
+                </div>
+                <div class="modal-footer">
+                    @using (Html.BeginForm("Aprovar", "CartaoReal"))
+                    {
+                        <input type="hidden" name="id" id="craId" />
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Confirmar</button>
                     }

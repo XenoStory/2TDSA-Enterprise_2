@@ -21,6 +21,7 @@ namespace Fiap05.Web.MVC.Controllers
         [HttpPost]
         public ActionResult Cadastrar(CartaoReal cr)
         {
+            cr.Status = StatusCartao.Bloqueado;
             _c.CartoesReais.Add(cr);
             _c.SaveChanges();
 
@@ -37,12 +38,20 @@ namespace Fiap05.Web.MVC.Controllers
             return View(_lista);
         }
 
-        [HttpGet]
-        public ActionResult Editar(int id)
+        [HttpPost]
+        public ActionResult Aprovar(int id)
         {
             CartaoReal cr = _c.CartoesReais.Find(id);
 
-            return View(cr);
+            if(cr.Status == StatusCartao.Bloqueado)
+            {
+                cr.Status = StatusCartao.Aprovado;
+                _c.Entry(cr).State = System.Data.Entity.EntityState.Modified;
+                _c.SaveChanges();
+                TempData["msg"] = "Cartão aprovado com sucesso.";
+            }
+
+            return RedirectToAction("Listar");
         }
 
         [HttpPost]
@@ -64,6 +73,21 @@ namespace Fiap05.Web.MVC.Controllers
             _c.SaveChanges();
 
             TempData["msg"] = "Registro deletado com sucesso.";
+
+            return RedirectToAction("Listar");
+        }
+
+        [HttpPost]
+        public ActionResult Bloquear(int id)
+        {
+            CartaoReal cr = _c.CartoesReais.Find(id);
+            if(cr.Status == StatusCartao.Aprovado)
+            {
+                cr.Status = StatusCartao.Bloqueado;
+                _c.Entry(cr).State = System.Data.Entity.EntityState.Modified;
+                _c.SaveChanges();
+                TempData["msg"] = "Cartão bloqueado com sucesso.";
+            }
 
             return RedirectToAction("Listar");
         }

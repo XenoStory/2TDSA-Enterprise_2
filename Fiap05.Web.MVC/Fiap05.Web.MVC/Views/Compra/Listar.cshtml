@@ -12,13 +12,13 @@
         <th>Data da compra</th>
         <th>Cartão Virtual</th>
     </tr>
-    @foreach(var i in Model)
+    @foreach (var i in Model)
     {
         <tr>
             <td>@i.CompraId</td>
             <td>@i.Data.ToShortDateString()</td>
             <td>@i.CartaoVirtual.Numero</td>
         </tr>
-    }
+        }
 </table>
 

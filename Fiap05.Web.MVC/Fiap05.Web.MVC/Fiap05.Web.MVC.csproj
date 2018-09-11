@@ -121,6 +121,7 @@
     <Compile Include="Models\CartaoVirtual.cs" />
     <Compile Include="Models\Compra.cs" />
     <Compile Include="Models\Produto.cs" />
+    <Compile Include="Models\StatusCartao.cs" />
     <Compile Include="Persistence\FiapBankContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

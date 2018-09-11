@@ -19,6 +19,10 @@
             @Html.LabelFor(cr => cr.Cvv)
             @Html.TextBoxFor(cr => cr.Cvv, new { @class = "form-control" })
         </div>
+        <div class="form-group">
+            @Html.LabelFor(cr => cr.Status)
+            @Html.EnumDropDownListFor(cr => cr.Status, new { @class ="form-control", disabled = "disabled"})
+        </div>
 
         @UtilsHelper.formSubmit("Cadastrar")
     }

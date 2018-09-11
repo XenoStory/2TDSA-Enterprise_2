@@ -11,6 +11,8 @@ namespace Fiap05.Web.MVC.Models
         public long Numero { get; set; }
         public int Cvv { get; set; }
 
+        public StatusCartao Status { get; set; }
+
         // Relacionamentos
         // 1 - N
         public IList<CartaoVirtual> CartoesVirtuais { get; set; }
