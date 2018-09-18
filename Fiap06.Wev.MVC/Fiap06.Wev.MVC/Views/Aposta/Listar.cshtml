@@ -1,0 +1,27 @@
+﻿@model  List<Fiap06.Wev.MVC.Models.Aposta>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Data</th>
+        <th>Números</th>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.ApostaId</td>
+            <td>@i.Data</td>
+            <td>
+                @foreach (var t in i.Sequencia)
+                {
+                    @t
+                }
+            </td>
+        </tr>
+    }
+</table>

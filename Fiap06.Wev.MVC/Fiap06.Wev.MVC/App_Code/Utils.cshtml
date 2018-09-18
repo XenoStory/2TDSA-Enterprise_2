@@ -1,0 +1,18 @@
+﻿@helper genSubmit(string v)
+{
+    <input type="submit" value="@v" class="btn btn-primary" />
+}
+
+@helper genAlert(object content)
+{
+    if (content != null)
+    {
+    <div class="container">
+        <div class="row">
+            <div style="margin-top: 25px;" class="alert alert-success">
+                <span>@content</span>
+            </div>
+        </div>
+    </div>
+    }
+}
