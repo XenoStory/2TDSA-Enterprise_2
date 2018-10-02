@@ -46,7 +46,7 @@ namespace Fiap06.Wev.MVC.Repositories
 
         public IList<Aposta> Listar()
         {
-            return _c.Apostas.ToList();
+            return _c.Apostas.Include("Concurso").ToList();
         }
     }
 }

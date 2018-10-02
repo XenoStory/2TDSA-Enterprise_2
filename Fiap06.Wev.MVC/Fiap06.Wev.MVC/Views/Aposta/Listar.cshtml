@@ -16,12 +16,7 @@
         <tr>
             <td>@i.ApostaId</td>
             <td>@i.Data</td>
-            <td>
-                @foreach (var t in i.Sequencia)
-                {
-                    @t
-                }
-            </td>
+            <td>@i.SequenciaString</td>
         </tr>
     }
 </table>

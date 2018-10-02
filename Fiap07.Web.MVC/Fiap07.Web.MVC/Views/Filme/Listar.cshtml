@@ -1,0 +1,35 @@
+﻿@model List<Fiap07.Web.MVC.Models.Filme>
+
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+@using (Html.BeginForm("Pesquisar", "Filme", FormMethod.Get, new { @class = "form-inline" }))
+{
+    <input class="form-control mr-sm-2" type="search" name="data" placeholder="Search" aria-label="Search">
+    <input type="submit" value="Buscar" class="btn btn-success" />
+
+}
+
+<br />
+
+<table class="table">
+    <tr>
+        <td>Nome</td>
+        <td>Duração</td>
+        <td>Faixa etária</td>
+        <td>Categoria</td>
+    </tr>
+    @foreach (var i in Model)
+    {
+        <tr>
+            <td>@i.Nome</td>
+            <td>@i.Duracao</td>
+            <td>@i.ClassificacaoIndicativa</td>
+            <td>@i.Categoria.Nome</td>
+        </tr>
+    }
+</table>
+
